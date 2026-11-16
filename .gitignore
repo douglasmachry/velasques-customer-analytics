@@ -1,0 +1,14 @@
+node_modules
+dist
+coverage
+.vite
+.env
+.env.*
+!.env.example
+.DS_Store
+*.log
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions

@@ -1,0 +1,46 @@
+import type { Customer, Purchase } from '@/domain/types';
+
+// Synthetic records for a public portfolio demo. No real customer or tax data is used.
+export const demoCustomers: Customer[] = [
+  { id: 'cus-001', name: 'Ana Martins', taxId: '000000001', email: 'ana.martins@example.test', city: 'Porto' },
+  { id: 'cus-002', name: 'Bruno Costa', taxId: '000000002', email: 'bruno.costa@example.test', city: 'Matosinhos' },
+  { id: 'cus-003', name: 'Carolina Silva', taxId: '000000003', email: 'carolina.silva@example.test', city: 'Vila Nova de Gaia' },
+  { id: 'cus-004', name: 'Diogo Ferreira', taxId: '000000004', email: 'diogo.ferreira@example.test', city: 'Porto' },
+  { id: 'cus-005', name: 'Eva Rodrigues', taxId: '000000005', email: 'eva.rodrigues@example.test', city: 'Maia' },
+  { id: 'cus-006', name: 'Francisco Almeida', taxId: '000000006', email: 'francisco.almeida@example.test', city: 'Porto' },
+  { id: 'cus-007', name: 'Gabriela Santos', taxId: '000000007', email: 'gabriela.santos@example.test', city: 'Matosinhos' },
+  { id: 'cus-008', name: 'Hugo Pereira', taxId: '000000008', email: 'hugo.pereira@example.test', city: 'Porto' },
+];
+
+export const demoPurchases: Purchase[] = [
+  { id: 'PUR-1001', customerId: 'cus-001', date: '2025-01-12', totalAmount: 1250, items: [{ product: 'Reserva Douro', quantity: 3 }, { product: 'Porto Tawny' }] },
+  { id: 'PUR-1002', customerId: 'cus-002', date: '2025-01-18', totalAmount: 420, items: [{ product: 'Verde Alvarinho', quantity: 6 }] },
+  { id: 'PUR-1003', customerId: 'cus-003', date: '2025-02-02', totalAmount: 890, items: [{ product: 'Reserva Douro', quantity: 2 }] },
+  { id: 'PUR-1004', customerId: 'cus-001', date: '2025-02-14', totalAmount: 760, items: [{ product: 'Reserva Douro', quantity: 2 }, { product: 'Espumante Bruto', quantity: 2 }] },
+  { id: 'PUR-1005', customerId: 'cus-004', date: '2025-02-21', totalAmount: 310, items: [{ product: 'Verde Alvarinho', quantity: 3 }] },
+  { id: 'PUR-1006', customerId: 'cus-005', date: '2025-03-06', totalAmount: 1480, items: [{ product: 'Porto Vintage', quantity: 2 }, { product: 'Reserva Douro', quantity: 2 }] },
+  { id: 'PUR-1007', customerId: 'cus-006', date: '2025-03-11', totalAmount: 540, items: [{ product: 'Espumante Bruto', quantity: 6 }] },
+  { id: 'PUR-1008', customerId: 'cus-001', date: '2025-03-25', totalAmount: 980, items: [{ product: 'Reserva Douro', quantity: 4 }] },
+  { id: 'PUR-1009', customerId: 'cus-007', date: '2025-04-04', totalAmount: 670, items: [{ product: 'Verde Alvarinho', quantity: 6 }] },
+  { id: 'PUR-1010', customerId: 'cus-008', date: '2025-04-16', totalAmount: 390, items: [{ product: 'Porto Tawny', quantity: 3 }] },
+  { id: 'PUR-1011', customerId: 'cus-002', date: '2025-05-08', totalAmount: 1150, items: [{ product: 'Reserva Douro', quantity: 3 }] },
+  { id: 'PUR-1012', customerId: 'cus-003', date: '2025-05-19', totalAmount: 720, items: [{ product: 'Espumante Bruto', quantity: 4 }] },
+  { id: 'PUR-1013', customerId: 'cus-004', date: '2025-06-02', totalAmount: 1850, items: [{ product: 'Porto Vintage', quantity: 3 }, { product: 'Reserva Douro', quantity: 2 }] },
+  { id: 'PUR-1014', customerId: 'cus-005', date: '2025-06-20', totalAmount: 630, items: [{ product: 'Verde Alvarinho', quantity: 6 }] },
+  { id: 'PUR-1015', customerId: 'cus-006', date: '2025-07-09', totalAmount: 920, items: [{ product: 'Reserva Douro', quantity: 2 }, { product: 'Porto Tawny', quantity: 2 }] },
+  { id: 'PUR-1016', customerId: 'cus-007', date: '2025-07-28', totalAmount: 490, items: [{ product: 'Espumante Bruto', quantity: 3 }] },
+  { id: 'PUR-1017', customerId: 'cus-008', date: '2025-08-13', totalAmount: 1340, items: [{ product: 'Porto Vintage', quantity: 2 }] },
+  { id: 'PUR-1018', customerId: 'cus-002', date: '2025-09-03', totalAmount: 780, items: [{ product: 'Verde Alvarinho', quantity: 9 }] },
+  { id: 'PUR-1019', customerId: 'cus-003', date: '2025-10-15', totalAmount: 1020, items: [{ product: 'Reserva Douro', quantity: 3 }, { product: 'Porto Tawny', quantity: 2 }] },
+  { id: 'PUR-1020', customerId: 'cus-004', date: '2025-11-22', totalAmount: 2100, items: [{ product: 'Porto Vintage', quantity: 4 }] },
+  { id: 'PUR-1021', customerId: 'cus-005', date: '2025-12-05', totalAmount: 870, items: [{ product: 'Reserva Douro', quantity: 3 }] },
+  { id: 'PUR-1022', customerId: 'cus-006', date: '2026-01-17', totalAmount: 1160, items: [{ product: 'Porto Tawny', quantity: 5 }] },
+  { id: 'PUR-1023', customerId: 'cus-007', date: '2026-02-08', totalAmount: 640, items: [{ product: 'Verde Alvarinho', quantity: 8 }] },
+  { id: 'PUR-1024', customerId: 'cus-008', date: '2026-03-19', totalAmount: 1580, items: [{ product: 'Reserva Douro', quantity: 4 }] },
+  { id: 'PUR-1025', customerId: 'cus-001', date: '2026-04-02', totalAmount: 1920, items: [{ product: 'Porto Vintage', quantity: 3 }, { product: 'Reserva Douro', quantity: 2 }] },
+  { id: 'PUR-1026', customerId: 'cus-002', date: '2026-05-11', totalAmount: 860, items: [{ product: 'Espumante Bruto', quantity: 6 }] },
+  { id: 'PUR-1027', customerId: 'cus-003', date: '2026-06-23', totalAmount: 1250, items: [{ product: 'Reserva Douro', quantity: 4 }] },
+  { id: 'PUR-1028', customerId: 'cus-004', date: '2026-07-14', totalAmount: 970, items: [{ product: 'Verde Alvarinho', quantity: 10 }] },
+  { id: 'PUR-1029', customerId: 'cus-005', date: '2026-08-30', totalAmount: 2250, items: [{ product: 'Porto Vintage', quantity: 5 }] },
+  { id: 'PUR-1030', customerId: 'cus-006', date: '2026-09-09', totalAmount: 1380, items: [{ product: 'Reserva Douro', quantity: 4 }, { product: 'Espumante Bruto', quantity: 2 }] },
+];
