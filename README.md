@@ -1,26 +1,26 @@
 # Velasques Customer Analytics
 
-Modernização de uma aplicação React legada para análise de clientes, compras e fidelização.
+A modernization of a legacy React application for customer, purchase, and loyalty analytics.
 
-> **Dados de demonstração:** o modo padrão usa dados sintéticos. Os fixtures de integração também são fictícios e não representam pessoas ou documentos reais.
+> **Demo data:** the default mode uses synthetic records. The integration fixtures are also fictional and do not represent real people or identity documents.
 
-## Funcionalidades
+## Features
 
-- Dashboard com indicadores de receita, clientes, compras e ticket médio.
-- Gráfico mensal de receita e filtro por ano e intervalo de meses.
-- Diretório de clientes com pesquisa e ordenação por valor, frequência ou nome.
-- Perfil do cliente com métricas, produto recorrente e histórico de compras.
-- Ranking de fidelização filtrável por período.
-- Adapter Zod para os payloads do sistema legado.
-- Testes unitários e testes end-to-end que percorrem o adapter a partir de JSON no formato legado.
+- Business dashboard with revenue, customer, purchase, and average order value metrics.
+- Monthly revenue chart with year and month-range filters.
+- Customer directory with search and sorting by spend, purchase frequency, or name.
+- Individual customer profiles with key metrics, recurring product, and purchase history.
+- Loyalty ranking that can be filtered by period.
+- Zod adapter for the legacy system's API payloads.
+- Unit tests and end-to-end tests that exercise the adapter using JSON fixtures in the legacy format.
 
-## Stack
+## Tech Stack
 
 React 19 · TypeScript · Vite · React Router · TanStack Query · Tailwind CSS 4 · Recharts · Zod · Vitest · Playwright
 
-## Começar
+## Getting Started
 
-Requisitos: Node.js 22+ e Corepack.
+Requirements: Node.js 22+ and Corepack.
 
 ```bash
 corepack enable
@@ -28,7 +28,9 @@ corepack yarn install --immutable
 corepack yarn dev
 ```
 
-## Verificações
+The project pins Yarn 4.4.0 through the `packageManager` field in `package.json`.
+
+## Quality Checks
 
 ```bash
 corepack yarn typecheck
@@ -38,50 +40,52 @@ corepack yarn test:e2e
 corepack yarn build
 ```
 
-Para executar os testes browser localmente:
+To run the browser tests locally, install Playwright's Chromium browser first:
 
 ```bash
 corepack yarn playwright install chromium
 corepack yarn test:e2e
 ```
 
-## Contrato legado confirmado no código original
+## Legacy API Contract
 
-- Clientes: `cpf`, `nome`.
-- Compras: `cliente`, `data`, `valorTotal`, `itens`.
-- Itens: `produto`; `variedade`, `ano`, `pais` e `categoria` são aceites como atributos opcionais.
+The following fields are confirmed by the original application code:
 
-Os endpoints antigos apontavam para dois IDs Mocky em HTTP. Não consegui confirmar as respostas atuais desses endereços, pelo que a integração real permanece desligada. Para ativar uma API, configure no ficheiro local `.env` dois URLs HTTPS que devolvam os arrays no contrato acima:
+- Customers: `cpf`, `nome`.
+- Purchases: `cliente`, `data`, `valorTotal`, `itens`.
+- Purchase items: `produto`; `variedade`, `ano`, `pais`, and `categoria` are supported as optional attributes.
+
+The original application referenced two Mocky endpoints over HTTP. Their current responses could not be verified, so the application uses synthetic data by default. To connect an API, configure two HTTPS URLs in your local `.env` file. They must return arrays matching the contract above:
 
 ```bash
 VITE_USE_MOCKS=false
-VITE_CUSTOMERS_API_URL=https://seu-endpoint-de-clientes
-VITE_PURCHASES_API_URL=https://seu-endpoint-de-compras
+VITE_CUSTOMERS_API_URL=https://your-customers-endpoint
+VITE_PURCHASES_API_URL=https://your-purchases-endpoint
 ```
 
-A aplicação usa o CPF apenas como chave de junção transitória no adapter. O valor não é guardado no modelo de domínio nem copiado para IDs de cliente ou de compra. Mesmo assim, o browser recebe a resposta original; **não ligue endpoints com dados pessoais a uma aplicação pública sem autenticação e uma API de backend que controle o acesso e minimize os dados devolvidos**.
+The adapter uses the CPF only as a temporary join key. It is not stored in the domain model or included in customer or purchase IDs. However, the browser still receives the original API response. **Do not connect endpoints containing personal data to a public frontend without authentication and a backend that controls access and minimizes the data returned to the browser.**
 
-Os fixtures sintéticos usados no Playwright estão em `public/fixtures/`; o servidor de testes configura a aplicação em modo API para validar o fluxo completo de adaptação.
+The synthetic fixtures used by Playwright are stored in `public/fixtures/`. The test server runs the application in API mode to exercise the complete data-adaptation flow.
 
 ## CI
 
-O GitHub Actions executa instalação imutável, TypeScript, ESLint, testes unitários, build e testes end-to-end em Chromium. O relatório Playwright é publicado como artefacto.
+GitHub Actions runs an immutable dependency install, TypeScript checks, ESLint, unit tests, a production build, and end-to-end tests in Chromium. The Playwright HTML report is uploaded as a workflow artifact.
 
-## Organização
+## Project Structure
 
 ```text
 src/
-  app/                 # Bootstrap, rotas e layout
-  data/                # Dados sintéticos para demonstração
-  domain/              # Tipos e regras de analytics
-  features/            # Dashboard, clientes, detalhe e fidelização
-  infrastructure/      # Fonte de dados e adapter legado
-  shared/              # Formatação, filtros e estados de carregamento
-  test/                # Configuração de testes
-public/fixtures/       # Payloads sintéticos no contrato legado
-e2e/                   # Testes de browser
+  app/                 # Application bootstrap, routes, and layout
+  data/                # Synthetic demo data
+  domain/              # Analytics types and business rules
+  features/            # Dashboard, customers, customer details, and loyalty
+  infrastructure/      # Data source and legacy API adapter
+  shared/              # Formatting, filters, and loading/error states
+  test/                # Test configuration
+public/fixtures/       # Synthetic payloads using the legacy API contract
+e2e/                   # Browser end-to-end tests
 ```
 
-## Privacidade
+## Privacy
 
-Nunca inclua dados reais de clientes, CPF/NIF, credenciais, tokens ou exports de produção.
+Never commit real customer records, CPF/NIF numbers, credentials, tokens, or production data exports.
