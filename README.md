@@ -25,11 +25,11 @@ Requisitos: Node.js 22+ e Corepack.
 
 ```bash
 corepack enable
-corepack yarn install
+corepack yarn install --immutable
 corepack yarn dev
 ```
 
-O projeto fixa Yarn 4.4.0 no campo `packageManager`. O ficheiro `yarn.lock` é gerado no workflow de CI enquanto a primeira instalação ainda está a ser preparada; deve ser versionado assim que estiver disponível no artefacto da execução.
+O projeto fixa Yarn 4.4.0 no campo `packageManager` e versiona `yarn.lock` para que o CI e os ambientes locais instalem as mesmas versões.
 
 ## Verificações
 
@@ -72,7 +72,7 @@ As variáveis com prefixo `VITE_` ficam acessíveis no browser. Nunca coloque se
 
 ## CI
 
-O GitHub Actions executa instalação, TypeScript, ESLint, testes unitários, build e testes end-to-end em Chromium. A pipeline publica o lockfile inicial como artefacto e guarda o relatório Playwright quando os testes falham.
+O GitHub Actions executa instalação imutável, TypeScript, ESLint, testes unitários, build e testes end-to-end em Chromium. O relatório HTML do Playwright é publicado como artefacto em cada execução.
 
 ## Organização
 

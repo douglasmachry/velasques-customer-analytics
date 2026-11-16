@@ -7,35 +7,20 @@ on:
     branches: [main]
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   quality:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
         with:
           node-version: 22
+          cache: yarn
       - run: corepack enable
-      - name: Install dependencies and generate lockfile when needed
-        run: yarn install --no-immutable
-      - name: Preserve generated lockfile as an artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: generated-yarn-lockfile
-          path: yarn.lock
-          if-no-files-found: error
-      - name: Commit the initial lockfile
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        run: |
-          if [ -f yarn.lock ] && ! git ls-files --error-unmatch yarn.lock >/dev/null 2>&1; then
-            git config user.name "github-actions[bot]"
-            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add yarn.lock
-            git commit -m "build: add initial yarn lockfile"
-            git push origin HEAD:main
-          fi
+      - name: Install dependencies
+        run: yarn install --immutable
       - run: yarn typecheck
       - run: yarn lint
       - run: yarn test
@@ -45,9 +30,10 @@ jobs:
       - name: Run end-to-end tests
         run: yarn test:e2e
       - name: Upload Playwright report
-        uses: actions/upload-artifact@v4
-        if: failure()
+        uses: actions/upload-artifact@v5
+        if: always()
         with:
           name: playwright-report
           path: playwright-report/
+          if-no-files-found: ignore
           retention-days: 14
