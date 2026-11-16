@@ -8,5 +8,5 @@ test('loyalty ranking responds to the selected year using legacy API fixtures', 
   await expect(page.getByText(/3 compras analisadas/)).toBeVisible();
 
   await page.getByLabel('Ano').selectOption('2026');
-  await expect(page.getByText(/1 compras analisadas/)).toBeVisible();
+  await expect(page.getByText(/1 compra analisada/)).toBeVisible();
 });
