@@ -16,8 +16,8 @@ test('dashboard recalculates indicators when a year is selected', async ({ page 
 test('dashboard filters purchases by a month interval', async ({ page }) => {
   await page.goto('/');
 
-  await page.getByLabel('De').fill('2026-03');
-  await page.getByLabel('Até').fill('2026-04');
+  await page.getByRole('textbox', { name: 'De' }).fill('2026-03');
+  await page.getByRole('textbox', { name: 'Até' }).fill('2026-04');
 
   const purchaseCount = page.locator('.stat-card').nth(2).locator('.stat-value');
   await expect(purchaseCount).toHaveText('2');
