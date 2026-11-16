@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { getCustomerAnalytics, getDashboardMetrics, getLargestPurchase, getLoyaltyRanking } from './analytics';
+import { filterPurchasesByYear, getCustomerAnalytics, getDashboardMetrics, getLargestPurchase, getLoyaltyRanking } from './analytics';
 import type { Customer, Purchase } from './types';
 
 const customers: Customer[] = [
@@ -23,7 +23,11 @@ describe('dashboard analytics', () => {
       totalCustomers: 0, totalRevenue: 0, totalPurchases: 0, averageOrderValue: 0,
     });
   });
+  it('filters purchase records by year', () => {
+    expect(filterPurchasesByYear(purchases, 2025).map((purchase) => purchase.id)).toEqual(['p-1', 'p-2']);
+  });
 });
+
 describe('customer analytics', () => {
   it('preserves leading zeroes and calculates spend and frequency', () => {
     const [ana] = getCustomerAnalytics(customers, purchases);
@@ -33,10 +37,15 @@ describe('customer analytics', () => {
     expect(ana.averageOrderValue).toBe(175);
     expect(ana.mostPurchasedProduct).toBe('Vinho A');
   });
+  it('counts product line occurrences instead of item quantities', () => {
+    const [ana] = getCustomerAnalytics(customers, purchases);
+    expect(ana.mostPurchasedProduct).toBe('Vinho A');
+  });
   it('ranks by purchase frequency, then spend', () => {
     expect(getLoyaltyRanking(customers, purchases).map((item) => item.customer.id)).toEqual(['c-1', 'c-2']);
   });
 });
+
 describe('largest purchase', () => {
   it('finds the largest purchase for a selected year', () => {
     expect(getLargestPurchase(purchases, 2025)?.id).toBe('p-2');

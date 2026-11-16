@@ -1,5 +1,13 @@
 import type { Customer, CustomerAnalytics, DashboardMetrics, Purchase } from './types';
 
+export function filterPurchasesByYear(purchases: Purchase[], year?: number): Purchase[] {
+  if (year === undefined) return purchases;
+  return purchases.filter((purchase) => {
+    const date = new Date(purchase.date);
+    return !Number.isNaN(date.getTime()) && date.getFullYear() === year;
+  });
+}
+
 export function getDashboardMetrics(customers: Customer[], purchases: Purchase[]): DashboardMetrics {
   const totalRevenue = purchases.reduce((sum, purchase) => sum + purchase.totalAmount, 0);
   return {
@@ -16,9 +24,11 @@ export function getCustomerAnalytics(customers: Customer[], purchases: Purchase[
     const totalSpent = customerPurchases.reduce((sum, purchase) => sum + purchase.totalAmount, 0);
     const productCounts = new Map<string, number>();
 
+    // The legacy product recommendation counts occurrences of each product line,
+    // rather than multiplying by the quantity purchased.
     for (const purchase of customerPurchases) {
       for (const item of purchase.items) {
-        productCounts.set(item.product, (productCounts.get(item.product) ?? 0) + (item.quantity ?? 1));
+        productCounts.set(item.product, (productCounts.get(item.product) ?? 0) + 1);
       }
     }
 
@@ -41,15 +51,10 @@ export function getCustomerAnalytics(customers: Customer[], purchases: Purchase[
 }
 
 export function getLargestPurchase(purchases: Purchase[], year?: number): Purchase | undefined {
-  return purchases
-    .filter((purchase) => {
-      const date = new Date(purchase.date);
-      return !Number.isNaN(date.getTime()) && (year === undefined || date.getFullYear() === year);
-    })
-    .reduce<Purchase | undefined>(
-      (largest, purchase) => !largest || purchase.totalAmount > largest.totalAmount ? purchase : largest,
-      undefined,
-    );
+  return filterPurchasesByYear(purchases, year).reduce<Purchase | undefined>(
+    (largest, purchase) => !largest || purchase.totalAmount > largest.totalAmount ? purchase : largest,
+    undefined,
+  );
 }
 
 export function getLoyaltyRanking(customers: Customer[], purchases: Purchase[]): CustomerAnalytics[] {

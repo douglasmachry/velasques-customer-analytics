@@ -16,8 +16,6 @@ jobs:
           node-version: 22
       - run: corepack enable
       - run: yarn install
-        env:
-          YARN_ENABLE_IMMUTABLE_INSTALLS: "false"
       - run: yarn typecheck
       - run: yarn lint
       - run: yarn test

@@ -2,21 +2,21 @@
 
 Modernização de uma aplicação React legada para análise de clientes, compras e fidelização.
 
-> **Dados de demonstração:** todos os registos apresentados são sintéticos. Nenhum dado real de cliente, CPF ou NIF deve ser publicado neste repositório.
+> **Dados de demonstração:** o modo padrão usa registos sintéticos. Não inclua dados reais de clientes, CPF/NIF ou exports de produção neste repositório público.
 
 ## Funcionalidades
 
-- Painel de negócio com receita, clientes, compras e ticket médio.
-- Evolução mensal da receita.
-- Diretório de clientes com pesquisa e ordenação.
-- Ranking de fidelização baseado na frequência de compras.
-- Cálculo da compra individual de maior valor.
-- Testes unitários das regras de domínio.
-- Pipeline CI para tipagem, lint, testes e build.
+- Dashboard com indicadores de receita, clientes, compras e ticket médio.
+- Gráfico mensal de receita e filtro por ano e intervalo de meses.
+- Diretório de clientes com pesquisa e ordenação por valor, frequência ou nome.
+- Perfil do cliente com métricas, produto recorrente e histórico de compras.
+- Ranking de fidelização filtrável por período.
+- Compra individual de maior valor no período selecionado.
+- Testes unitários para cálculos e adaptação dos payloads legados.
 
 ## Stack
 
-React 19 · TypeScript · Vite · React Router · TanStack Query · Tailwind CSS 4 · Recharts · Vitest · Testing Library
+React 19 · TypeScript · Vite · React Router · TanStack Query · Tailwind CSS 4 · Recharts · Zod · Vitest · Testing Library
 
 ## Começar
 
@@ -28,7 +28,7 @@ corepack yarn install
 corepack yarn dev
 ```
 
-O projeto fixa Yarn 4.4.0 através do campo `packageManager`.
+O projeto fixa Yarn 4.4.0 no campo `packageManager`.
 
 ## Verificações
 
@@ -39,35 +39,47 @@ corepack yarn test
 corepack yarn build
 ```
 
+## Fonte de dados
+
+Por padrão, o projeto utiliza um conjunto sintético em `src/data/demo-data.ts`. A configuração está em `.env.example`.
+
+Para ligar a API antiga, defina no ficheiro local `.env`:
+
+```bash
+VITE_USE_MOCKS=false
+VITE_CUSTOMERS_API_URL=https://seu-endpoint-de-clientes
+VITE_PURCHASES_API_URL=https://seu-endpoint-de-compras
+```
+
+O adapter espera os campos legados observados no código original:
+
+- Clientes: `cpf`, `nome`.
+- Compras: `cliente`, `data`, `valorTotal`, `itens`.
+- Itens: `produto`, e opcionalmente `variedade`, `ano`, `pais`, `categoria`.
+
+O adapter valida a estrutura com Zod, normaliza CPF como string, datas para `YYYY-MM-DD` e valores monetários. Os endpoints Mocky usados pelo projeto antigo não foram confirmados como acessíveis nesta fase; por isso, a app não depende deles no modo padrão. A integração externa só deve ser ativada depois de validar as respostas reais e as regras de CORS.
+
+As variáveis com prefixo `VITE_` ficam acessíveis no browser. Nunca coloque segredos nelas.
+
 ## Organização
 
 ```text
 src/
-  app/          # Bootstrap, rotas e layout
-  data/         # Dados sintéticos de demonstração
-  domain/       # Entidades e regras puras de analytics
-  features/     # Dashboard, clientes e fidelização
-  shared/       # Funções reutilizáveis
-  test/         # Configuração de testes
+  app/                 # Bootstrap, rotas e layout
+  data/                # Dados sintéticos de demonstração
+  domain/              # Tipos e regras de analytics
+  features/            # Dashboard, clientes, detalhe e fidelização
+  infrastructure/      # Fonte de dados e adapter dos endpoints legados
+  shared/              # Formatação, filtros e estados de carregamento
+  test/                # Configuração de testes
 ```
-
-As regras de negócio vivem em funções puras para serem testadas sem dependência de componentes. Identificadores fiscais são strings para preservar zeros à esquerda.
-
-## Integração de dados
-
-O projeto original utilizava endpoints Mocky legados. Eles ainda não estão ligados a esta demonstração pública porque a disponibilidade e o contrato dos payloads precisam de ser novamente validados. A aplicação utiliza, por enquanto, dados sintéticos num módulo isolado. O próximo passo é implementar cliente HTTP, schemas de validação e adapters depois de confirmar a estrutura real das respostas.
-
-As variáveis de ambiente estão documentadas em `.env.example`. Não coloque segredos em variáveis com prefixo `VITE_`, pois são expostas no bundle do browser.
 
 ## Roadmap
 
-- [ ] Validar os contratos dos endpoints de clientes e compras.
-- [ ] Adicionar API client, schemas Zod e adapters.
-- [ ] Criar detalhe do cliente e histórico de compras.
-- [ ] Adicionar filtros por período e ano.
-- [ ] Incluir testes end-to-end com Playwright.
-- [ ] Publicar demo online e estudo de caso de arquitetura.
+- [ ] Confirmar os payloads reais dos endpoints legados e testar a integração end-to-end.
+- [ ] Adicionar testes de interface e Playwright.
+- [ ] Publicar uma demo e um estudo de caso de arquitetura.
 
 ## Privacidade
 
-Nunca inclua dados reais de clientes, CPF/NIF, credenciais, tokens ou exports de produção. Use apenas o conjunto sintético para screenshots e deploys públicos.
+Nunca inclua dados reais de clientes, CPF/NIF, credenciais, tokens ou exports de produção.
