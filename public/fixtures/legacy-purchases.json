@@ -1,0 +1,27 @@
+[
+  {
+    "cliente": "DEMO-ANA",
+    "data": "12/01/2025",
+    "valorTotal": "1.250,00",
+    "itens": [
+      { "produto": "Reserva Douro", "variedade": "Touriga Nacional", "ano": 2019, "pais": "Portugal", "categoria": "Tinto" }
+    ]
+  },
+  {
+    "cliente": "DEMO-ANA",
+    "data": "25/03/2025",
+    "valorTotal": 980,
+    "itens": [
+      { "produto": "Reserva Douro", "variedade": "Touriga Nacional", "ano": 2019, "pais": "Portugal", "categoria": "Tinto" },
+      { "produto": "Porto Tawny", "variedade": "Tawny", "ano": 2014, "pais": "Portugal", "categoria": "Fortificado" }
+    ]
+  },
+  {
+    "cliente": "DEMO-BRUNO",
+    "data": "19/03/2026",
+    "valorTotal": 1580,
+    "itens": [
+      { "produto": "Verde Alvarinho", "variedade": "Alvarinho", "ano": 2024, "pais": "Portugal", "categoria": "Branco" }
+    ]
+  }
+]

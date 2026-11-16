@@ -1,8 +1,8 @@
 export interface Customer {
   id: string;
   name: string;
-  /** String preserves leading zeroes; demo data uses fictional identifiers. */
-  taxId: string;
+  /** Optional placeholder for local demo data only; the legacy API adapter never stores CPF here. */
+  taxId?: string;
   email?: string;
   city?: string;
   createdAt?: string;

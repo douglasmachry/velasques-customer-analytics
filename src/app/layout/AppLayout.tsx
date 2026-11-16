@@ -1,5 +1,6 @@
 import { NavLink, Outlet } from 'react-router-dom';
 import { BarChart3, LayoutDashboard, Users, Sparkles } from 'lucide-react';
+import { analyticsDataMode } from '@/infrastructure/data-source';
 
 const navigation = [
   { to: '/', label: 'Visão geral', icon: LayoutDashboard, end: true },
@@ -24,14 +25,14 @@ export function AppLayout() {
           ))}
         </nav>
         <div className="sidebar-bottom">
-          <div className="demo-status"><span className="status-dot" /> Dados de demonstração</div>
+          <div className="demo-status"><span className="status-dot" /> {analyticsDataMode}</div>
           <div className="profile"><div className="avatar avatar-dark">VA</div><div><strong>Velasques Analytics</strong><small>Workspace demo</small></div></div>
         </div>
       </aside>
       <main className="main-content">
         <header className="topbar">
           <div className="breadcrumb">Workspace <span>/</span> <strong>Analytics</strong></div>
-          <div className="topbar-right"><span className="live-indicator" /> Ambiente de demonstração</div>
+          <div className="topbar-right"><span className="live-indicator" /> {analyticsDataMode}</div>
         </header>
         <div className="page-content"><Outlet /></div>
       </main>

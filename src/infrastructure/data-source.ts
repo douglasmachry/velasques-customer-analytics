@@ -1,16 +1,28 @@
 import type { Customer, Purchase } from '@/domain/types';
 import { demoCustomers, demoPurchases } from '@/data/demo-data';
-import { adaptLegacyCustomers, adaptLegacyPurchases } from './legacy/legacy-adapter';
+import { adaptLegacyData } from './legacy/legacy-adapter';
 
 export interface AnalyticsData {
   customers: Customer[];
   purchases: Purchase[];
 }
 
+function assertSecureApiUrl(rawUrl: string): string {
+  const url = new URL(rawUrl, window.location.origin);
+  const localHosts = new Set(['localhost', '127.0.0.1']);
+  if (url.protocol !== 'https:' && !(url.protocol === 'http:' && localHosts.has(url.hostname))) {
+    throw new Error('A API deve utilizar HTTPS. HTTP só é permitido para testes locais.');
+  }
+  return url.toString();
+}
+
 async function fetchJson(url: string): Promise<unknown> {
-  const response = await fetch(url, { headers: { Accept: 'application/json' } });
+  const response = await fetch(assertSecureApiUrl(url), {
+    headers: { Accept: 'application/json' },
+    signal: AbortSignal.timeout(15_000),
+  });
   if (!response.ok) {
-    throw new Error(`Falha ao consultar ${url}: HTTP ${response.status}`);
+    throw new Error(`Falha ao consultar a API (HTTP ${response.status}).`);
   }
   return response.json() as Promise<unknown>;
 }
@@ -27,7 +39,7 @@ export async function loadAnalyticsData(): Promise<AnalyticsData> {
 
   if (!customersUrl || !purchasesUrl) {
     throw new Error(
-      'Configure VITE_CUSTOMERS_API_URL e VITE_PURCHASES_API_URL para utilizar a API real.',
+      'Configure VITE_CUSTOMERS_API_URL e VITE_PURCHASES_API_URL para utilizar a API externa.',
     );
   }
 
@@ -36,20 +48,7 @@ export async function loadAnalyticsData(): Promise<AnalyticsData> {
     fetchJson(purchasesUrl),
   ]);
 
-  const customers = adaptLegacyCustomers(customersPayload);
-  const purchases = adaptLegacyPurchases(purchasesPayload);
-  const knownCustomerIds = new Set(customers.map((customer) => customer.id));
-  const unknownCustomerPurchases = purchases.filter(
-    (purchase) => !knownCustomerIds.has(purchase.customerId),
-  );
-
-  if (unknownCustomerPurchases.length > 0) {
-    throw new Error(
-      `A API devolveu ${unknownCustomerPurchases.length} compra(s) sem cliente correspondente.`,
-    );
-  }
-
-  return { customers, purchases };
+  return adaptLegacyData(customersPayload, purchasesPayload);
 }
 
 export const analyticsDataMode =

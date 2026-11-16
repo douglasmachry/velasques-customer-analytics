@@ -25,5 +25,10 @@ export default defineConfig({
     url: 'http://127.0.0.1:4173',
     reuseExistingServer: !isCI,
     timeout: 120_000,
+    env: {
+      VITE_USE_MOCKS: 'false',
+      VITE_CUSTOMERS_API_URL: 'http://127.0.0.1:4173/fixtures/legacy-customers.json',
+      VITE_PURCHASES_API_URL: 'http://127.0.0.1:4173/fixtures/legacy-purchases.json',
+    },
   },
 });
