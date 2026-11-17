@@ -1,0 +1,42 @@
+[
+  {
+    "cpf": "DEMO-CUSTOMER-001",
+    "nome": "Ana Martins"
+  },
+  {
+    "cpf": "DEMO-CUSTOMER-002",
+    "nome": "Bruno Costa"
+  },
+  {
+    "cpf": "DEMO-CUSTOMER-003",
+    "nome": "Carolina Silva"
+  },
+  {
+    "cpf": "DEMO-CUSTOMER-004",
+    "nome": "Diogo Ferreira"
+  },
+  {
+    "cpf": "DEMO-CUSTOMER-005",
+    "nome": "Eva Rodrigues"
+  },
+  {
+    "cpf": "DEMO-CUSTOMER-006",
+    "nome": "Francisco Almeida"
+  },
+  {
+    "cpf": "DEMO-CUSTOMER-007",
+    "nome": "Gabriela Santos"
+  },
+  {
+    "cpf": "DEMO-CUSTOMER-008",
+    "nome": "Hugo Pereira"
+  },
+  {
+    "cpf": "DEMO-CUSTOMER-009",
+    "nome": "Inês Carvalho"
+  },
+  {
+    "cpf": "DEMO-CUSTOMER-010",
+    "nome": "João Ribeiro"
+  }
+]

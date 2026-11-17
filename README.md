@@ -65,7 +65,7 @@ VITE_PURCHASES_API_URL=https://your-purchases-endpoint
 
 The adapter uses the CPF only as a temporary join key. It is not stored in the domain model or included in customer or purchase IDs. However, the browser still receives the original API response. **Do not connect endpoints containing personal data to a public frontend without authentication and a backend that controls access and minimizes the data returned to the browser.**
 
-The synthetic fixtures used by Playwright are stored in `public/fixtures/`. The test server runs the application in API mode to exercise the complete data-adaptation flow.
+Synthetic endpoint-response examples are available in `public/fixtures/sample-customers.json` (10 customers) and `public/fixtures/sample-purchases.json` (30 purchases). They use the legacy API field names and contain fictional values only. The smaller `legacy-customers.json` and `legacy-purchases.json` files remain dedicated to the Playwright end-to-end tests. The test server runs the application in API mode to exercise the complete data-adaptation flow.
 
 ## CI
 

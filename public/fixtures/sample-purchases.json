@@ -1,0 +1,485 @@
+[
+  {
+    "cliente": "DEMO-CUSTOMER-001",
+    "data": "12/01/2025",
+    "valorTotal": "1.250,00",
+    "itens": [
+      {
+        "produto": "Reserva Douro",
+        "variedade": "Touriga Nacional",
+        "ano": 2019,
+        "pais": "Portugal",
+        "categoria": "Tinto"
+      },
+      {
+        "produto": "Porto Tawny",
+        "variedade": "Tawny",
+        "ano": 2014,
+        "pais": "Portugal",
+        "categoria": "Fortificado"
+      }
+    ]
+  },
+  {
+    "cliente": "DEMO-CUSTOMER-002",
+    "data": "16/02/2025",
+    "valorTotal": 420,
+    "itens": [
+      {
+        "produto": "Verde Alvarinho",
+        "variedade": "Alvarinho",
+        "ano": 2024,
+        "pais": "Portugal",
+        "categoria": "Branco"
+      }
+    ]
+  },
+  {
+    "cliente": "DEMO-CUSTOMER-003",
+    "data": "08/03/2025",
+    "valorTotal": "890,50",
+    "itens": [
+      {
+        "produto": "Reserva Douro",
+        "variedade": "Touriga Nacional",
+        "ano": 2018,
+        "pais": "Portugal",
+        "categoria": "Tinto"
+      }
+    ]
+  },
+  {
+    "cliente": "DEMO-CUSTOMER-004",
+    "data": "12/05/2025",
+    "valorTotal": 310,
+    "itens": [
+      {
+        "produto": "Verde Alvarinho",
+        "variedade": "Alvarinho",
+        "ano": 2024,
+        "pais": "Portugal",
+        "categoria": "Branco"
+      }
+    ]
+  },
+  {
+    "cliente": "DEMO-CUSTOMER-005",
+    "data": "29/06/2025",
+    "valorTotal": "1.480,00",
+    "itens": [
+      {
+        "produto": "Porto Vintage",
+        "variedade": "Vintage",
+        "ano": 2017,
+        "pais": "Portugal",
+        "categoria": "Fortificado"
+      },
+      {
+        "produto": "Reserva Douro",
+        "variedade": "Touriga Nacional",
+        "ano": 2019,
+        "pais": "Portugal",
+        "categoria": "Tinto"
+      }
+    ]
+  },
+  {
+    "cliente": "DEMO-CUSTOMER-006",
+    "data": "09/07/2025",
+    "valorTotal": 540,
+    "itens": [
+      {
+        "produto": "Espumante Bruto",
+        "variedade": "Bruto",
+        "ano": 2023,
+        "pais": "Portugal",
+        "categoria": "Espumante"
+      }
+    ]
+  },
+  {
+    "cliente": "DEMO-CUSTOMER-007",
+    "data": "13/08/2025",
+    "valorTotal": "670,00",
+    "itens": [
+      {
+        "produto": "Verde Alvarinho",
+        "variedade": "Alvarinho",
+        "ano": 2024,
+        "pais": "Portugal",
+        "categoria": "Branco"
+      }
+    ]
+  },
+  {
+    "cliente": "DEMO-CUSTOMER-008",
+    "data": "15/10/2025",
+    "valorTotal": 1020,
+    "itens": [
+      {
+        "produto": "Reserva Douro",
+        "variedade": "Touriga Nacional",
+        "ano": 2018,
+        "pais": "Portugal",
+        "categoria": "Tinto"
+      },
+      {
+        "produto": "Porto Tawny",
+        "variedade": "Tawny",
+        "ano": 2014,
+        "pais": "Portugal",
+        "categoria": "Fortificado"
+      }
+    ]
+  },
+  {
+    "cliente": "DEMO-CUSTOMER-009",
+    "data": "22/11/2025",
+    "valorTotal": "2.100,00",
+    "itens": [
+      {
+        "produto": "Porto Vintage",
+        "variedade": "Vintage",
+        "ano": 2017,
+        "pais": "Portugal",
+        "categoria": "Fortificado"
+      }
+    ]
+  },
+  {
+    "cliente": "DEMO-CUSTOMER-010",
+    "data": "14/12/2025",
+    "valorTotal": 870,
+    "itens": [
+      {
+        "produto": "Reserva Douro",
+        "variedade": "Touriga Nacional",
+        "ano": 2019,
+        "pais": "Portugal",
+        "categoria": "Tinto"
+      }
+    ]
+  },
+  {
+    "cliente": "DEMO-CUSTOMER-001",
+    "data": "19/03/2026",
+    "valorTotal": 1580,
+    "itens": [
+      {
+        "produto": "Reserva Douro",
+        "variedade": "Touriga Nacional",
+        "ano": 2019,
+        "pais": "Portugal",
+        "categoria": "Tinto"
+      }
+    ]
+  },
+  {
+    "cliente": "DEMO-CUSTOMER-002",
+    "data": "11/05/2026",
+    "valorTotal": "860,00",
+    "itens": [
+      {
+        "produto": "Espumante Bruto",
+        "variedade": "Bruto",
+        "ano": 2023,
+        "pais": "Portugal",
+        "categoria": "Espumante"
+      }
+    ]
+  },
+  {
+    "cliente": "DEMO-CUSTOMER-003",
+    "data": "17/01/2026",
+    "valorTotal": 1160,
+    "itens": [
+      {
+        "produto": "Porto Tawny",
+        "variedade": "Tawny",
+        "ano": 2014,
+        "pais": "Portugal",
+        "categoria": "Fortificado"
+      }
+    ]
+  },
+  {
+    "cliente": "DEMO-CUSTOMER-004",
+    "data": "08/02/2026",
+    "valorTotal": 640,
+    "itens": [
+      {
+        "produto": "Verde Alvarinho",
+        "variedade": "Alvarinho",
+        "ano": 2024,
+        "pais": "Portugal",
+        "categoria": "Branco"
+      }
+    ]
+  },
+  {
+    "cliente": "DEMO-CUSTOMER-005",
+    "data": "30/08/2026",
+    "valorTotal": "2.250,00",
+    "itens": [
+      {
+        "produto": "Porto Vintage",
+        "variedade": "Vintage",
+        "ano": 2017,
+        "pais": "Portugal",
+        "categoria": "Fortificado"
+      }
+    ]
+  },
+  {
+    "cliente": "DEMO-CUSTOMER-006",
+    "data": "09/09/2026",
+    "valorTotal": 1380,
+    "itens": [
+      {
+        "produto": "Reserva Douro",
+        "variedade": "Touriga Nacional",
+        "ano": 2019,
+        "pais": "Portugal",
+        "categoria": "Tinto"
+      },
+      {
+        "produto": "Espumante Bruto",
+        "variedade": "Bruto",
+        "ano": 2023,
+        "pais": "Portugal",
+        "categoria": "Espumante"
+      }
+    ]
+  },
+  {
+    "cliente": "DEMO-CUSTOMER-007",
+    "data": "05/03/2026",
+    "valorTotal": 490,
+    "itens": [
+      {
+        "produto": "Espumante Bruto",
+        "variedade": "Bruto",
+        "ano": 2023,
+        "pais": "Portugal",
+        "categoria": "Espumante"
+      }
+    ]
+  },
+  {
+    "cliente": "DEMO-CUSTOMER-008",
+    "data": "24/05/2026",
+    "valorTotal": 1340,
+    "itens": [
+      {
+        "produto": "Porto Vintage",
+        "variedade": "Vintage",
+        "ano": 2017,
+        "pais": "Portugal",
+        "categoria": "Fortificado"
+      }
+    ]
+  },
+  {
+    "cliente": "DEMO-CUSTOMER-009",
+    "data": "03/06/2026",
+    "valorTotal": "1.020,00",
+    "itens": [
+      {
+        "produto": "Reserva Douro",
+        "variedade": "Touriga Nacional",
+        "ano": 2018,
+        "pais": "Portugal",
+        "categoria": "Tinto"
+      },
+      {
+        "produto": "Porto Tawny",
+        "variedade": "Tawny",
+        "ano": 2014,
+        "pais": "Portugal",
+        "categoria": "Fortificado"
+      }
+    ]
+  },
+  {
+    "cliente": "DEMO-CUSTOMER-010",
+    "data": "25/07/2026",
+    "valorTotal": 970,
+    "itens": [
+      {
+        "produto": "Verde Alvarinho",
+        "variedade": "Alvarinho",
+        "ano": 2024,
+        "pais": "Portugal",
+        "categoria": "Branco"
+      }
+    ]
+  },
+  {
+    "cliente": "DEMO-CUSTOMER-001",
+    "data": "02/04/2026",
+    "valorTotal": 1920,
+    "itens": [
+      {
+        "produto": "Porto Vintage",
+        "variedade": "Vintage",
+        "ano": 2017,
+        "pais": "Portugal",
+        "categoria": "Fortificado"
+      },
+      {
+        "produto": "Reserva Douro",
+        "variedade": "Touriga Nacional",
+        "ano": 2019,
+        "pais": "Portugal",
+        "categoria": "Tinto"
+      }
+    ]
+  },
+  {
+    "cliente": "DEMO-CUSTOMER-002",
+    "data": "03/09/2025",
+    "valorTotal": 780,
+    "itens": [
+      {
+        "produto": "Verde Alvarinho",
+        "variedade": "Alvarinho",
+        "ano": 2024,
+        "pais": "Portugal",
+        "categoria": "Branco"
+      }
+    ]
+  },
+  {
+    "cliente": "DEMO-CUSTOMER-003",
+    "data": "23/06/2026",
+    "valorTotal": 1250,
+    "itens": [
+      {
+        "produto": "Reserva Douro",
+        "variedade": "Touriga Nacional",
+        "ano": 2018,
+        "pais": "Portugal",
+        "categoria": "Tinto"
+      }
+    ]
+  },
+  {
+    "cliente": "DEMO-CUSTOMER-004",
+    "data": "14/07/2026",
+    "valorTotal": 970,
+    "itens": [
+      {
+        "produto": "Verde Alvarinho",
+        "variedade": "Alvarinho",
+        "ano": 2024,
+        "pais": "Portugal",
+        "categoria": "Branco"
+      }
+    ]
+  },
+  {
+    "cliente": "DEMO-CUSTOMER-005",
+    "data": "05/12/2025",
+    "valorTotal": 870,
+    "itens": [
+      {
+        "produto": "Reserva Douro",
+        "variedade": "Touriga Nacional",
+        "ano": 2019,
+        "pais": "Portugal",
+        "categoria": "Tinto"
+      }
+    ]
+  },
+  {
+    "cliente": "DEMO-CUSTOMER-006",
+    "data": "02/04/2026",
+    "valorTotal": 920,
+    "itens": [
+      {
+        "produto": "Reserva Douro",
+        "variedade": "Touriga Nacional",
+        "ano": 2019,
+        "pais": "Portugal",
+        "categoria": "Tinto"
+      },
+      {
+        "produto": "Porto Tawny",
+        "variedade": "Tawny",
+        "ano": 2014,
+        "pais": "Portugal",
+        "categoria": "Fortificado"
+      }
+    ]
+  },
+  {
+    "cliente": "DEMO-CUSTOMER-007",
+    "data": "18/08/2026",
+    "valorTotal": 760,
+    "itens": [
+      {
+        "produto": "Reserva Douro",
+        "variedade": "Touriga Nacional",
+        "ano": 2018,
+        "pais": "Portugal",
+        "categoria": "Tinto"
+      }
+    ]
+  },
+  {
+    "cliente": "DEMO-CUSTOMER-008",
+    "data": "21/09/2026",
+    "valorTotal": 390,
+    "itens": [
+      {
+        "produto": "Porto Tawny",
+        "variedade": "Tawny",
+        "ano": 2014,
+        "pais": "Portugal",
+        "categoria": "Fortificado"
+      }
+    ]
+  },
+  {
+    "cliente": "DEMO-CUSTOMER-009",
+    "data": "27/01/2026",
+    "valorTotal": 1480,
+    "itens": [
+      {
+        "produto": "Porto Vintage",
+        "variedade": "Vintage",
+        "ano": 2017,
+        "pais": "Portugal",
+        "categoria": "Fortificado"
+      },
+      {
+        "produto": "Reserva Douro",
+        "variedade": "Touriga Nacional",
+        "ano": 2018,
+        "pais": "Portugal",
+        "categoria": "Tinto"
+      }
+    ]
+  },
+  {
+    "cliente": "DEMO-CUSTOMER-010",
+    "data": "18/02/2026",
+    "valorTotal": "1.110,00",
+    "itens": [
+      {
+        "produto": "Espumante Bruto",
+        "variedade": "Bruto",
+        "ano": 2023,
+        "pais": "Portugal",
+        "categoria": "Espumante"
+      },
+      {
+        "produto": "Verde Alvarinho",
+        "variedade": "Alvarinho",
+        "ano": 2024,
+        "pais": "Portugal",
+        "categoria": "Branco"
+      }
+    ]
+  }
+]
