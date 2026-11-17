@@ -78,6 +78,19 @@ The smaller `legacy-customers.json` and `legacy-purchases.json` files are compac
 
 The Playwright web server runs the application in API mode and points both API URLs at the larger sample fixtures. This exercises fetching, Zod validation, joining customers to purchases, data normalization, and the UI using the same flow as the external API integration.
 
+## Deployment
+
+The project is configured for Vercel.
+
+1. Import `douglasmachry/velasques-customer-analytics` into your Vercel account.
+2. Keep the framework preset as **Vite** (the repository includes a `vercel.json` configuration).
+3. Set the project environment variable `VITE_USE_MOCKS=true` for Production, Preview, and Development.
+4. Deploy the `main` branch.
+
+The build uses `corepack yarn install --immutable` and `corepack yarn build`, and publishes the `dist/` directory. SPA rewrites are enabled so routes such as `/customers/:customerId` continue to work when opened directly or refreshed.
+
+Only the synthetic demo dataset is intended for the public deployment. Do not configure real customer or purchase API URLs in a public frontend.
+
 ## CI
 
 GitHub Actions runs an immutable dependency install, TypeScript checks, ESLint, unit tests, a production build, and end-to-end tests in Chromium. The Playwright HTML report is uploaded as a workflow artifact.
