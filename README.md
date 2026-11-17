@@ -12,7 +12,7 @@ A modernization of a legacy React application for customer, purchase, and loyalt
 - Individual customer profiles with key metrics, recurring product, and purchase history.
 - Loyalty ranking that can be filtered by period.
 - Zod adapter for the legacy system's API payloads.
-- Unit tests and end-to-end tests that exercise the adapter using JSON fixtures in the legacy format.
+- Unit tests and end-to-end tests that exercise the adapter using synthetic JSON responses in the legacy format.
 
 ## Tech Stack
 
@@ -65,7 +65,18 @@ VITE_PURCHASES_API_URL=https://your-purchases-endpoint
 
 The adapter uses the CPF only as a temporary join key. It is not stored in the domain model or included in customer or purchase IDs. However, the browser still receives the original API response. **Do not connect endpoints containing personal data to a public frontend without authentication and a backend that controls access and minimizes the data returned to the browser.**
 
-Synthetic endpoint-response examples are available in `public/fixtures/sample-customers.json` (10 customers) and `public/fixtures/sample-purchases.json` (30 purchases). They use the legacy API field names and contain fictional values only. The smaller `legacy-customers.json` and `legacy-purchases.json` files remain dedicated to the Playwright end-to-end tests. The test server runs the application in API mode to exercise the complete data-adaptation flow.
+### Synthetic API response fixtures
+
+The larger fixtures model realistic endpoint responses and are used by the Playwright end-to-end suite:
+
+- `public/fixtures/sample-customers.json` — 10 fictional customers.
+- `public/fixtures/sample-purchases.json` — 30 fictional purchases across 2025 and 2026.
+
+They retain the legacy field names and include a mix of numeric and Brazilian-formatted monetary values. All purchase customer references match a customer in the customers fixture.
+
+The smaller `legacy-customers.json` and `legacy-purchases.json` files are compact examples of the same payload contract.
+
+The Playwright web server runs the application in API mode and points both API URLs at the larger sample fixtures. This exercises fetching, Zod validation, joining customers to purchases, data normalization, and the UI using the same flow as the external API integration.
 
 ## CI
 

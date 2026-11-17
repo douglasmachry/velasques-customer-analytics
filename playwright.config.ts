@@ -27,8 +27,8 @@ export default defineConfig({
     timeout: 120_000,
     env: {
       VITE_USE_MOCKS: 'false',
-      VITE_CUSTOMERS_API_URL: 'http://127.0.0.1:4173/fixtures/legacy-customers.json',
-      VITE_PURCHASES_API_URL: 'http://127.0.0.1:4173/fixtures/legacy-purchases.json',
+      VITE_CUSTOMERS_API_URL: 'http://127.0.0.1:4173/fixtures/sample-customers.json',
+      VITE_PURCHASES_API_URL: 'http://127.0.0.1:4173/fixtures/sample-purchases.json',
     },
   },
 });
